@@ -1,2 +1,0 @@
-import { lusolve } from "mathjs";
-

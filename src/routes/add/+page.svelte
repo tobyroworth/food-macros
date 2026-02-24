@@ -1,43 +1,35 @@
 <script lang="ts">
-    import { create } from 'mathjs';
-    import type { PageProps } from './$types';
-    import { createFood } from '$lib/macros/macros';
+import { create } from 'mathjs';
+import { createFood } from '$lib/macros/macros';
+import type { PageProps } from './$types';
 
-    let { data }: PageProps = $props();
+let { data }: PageProps = $props();
 
-    let name: string = $state("");
-    let fat: number = $state(0);
-    let carbs: number = $state(0);
-    let protein: number = $state(0);
-    let portionSize: number = $state(0);
-    let calories: number = $state(0);
+let name: string = $state('');
+let fat: number = $state(0);
+let carbs: number = $state(0);
+let protein: number = $state(0);
+let portionSize: number = $state(0);
+let calories: number = $state(0);
 
-    function save() {
-        const newFood = createFood(
-            name,
-            fat,
-            carbs,
-            protein,
-            calories,
-            portionSize,
-        );
+function _save() {
+  const newFood = createFood(name, fat, carbs, protein, calories, portionSize);
 
-        const foods = [...data.foods, newFood];
-        const foodsString = JSON.stringify(foods);
-        localStorage.setItem('foods', foodsString);
+  const foods = [...data.foods, newFood];
+  const foodsString = JSON.stringify(foods);
+  localStorage.setItem('foods', foodsString);
 
-      clear();
-    };
+  clear();
+}
 
-    function clear() {
-        name = "";
-        fat = 0;
-        carbs = 0;
-        protein = 0;
-        calories = 0;
-        portionSize = 0;
-    }
-
+function clear() {
+  name = '';
+  fat = 0;
+  carbs = 0;
+  protein = 0;
+  calories = 0;
+  portionSize = 0;
+}
 </script>
 
 <form>
@@ -65,7 +57,7 @@
     Calories
     <input bind:value={calories} type="number" name="calories" />
   </label>
-  <button onclick={save}>Add Food</button>
+  <button type="button" onclick={_save}>Add Food</button>
 </form>
 
 <style>

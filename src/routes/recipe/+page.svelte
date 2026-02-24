@@ -1,23 +1,31 @@
 <script lang="ts">
-import {solve, type Carbs, type Fat, type Food, type MacrosSplit, type Protein, type Recipe} from '$lib/macros/macros.js';
+import {
+  type Carbs,
+  type Fat,
+  type Food,
+  type MacrosSplit,
+  type Protein,
+  type Recipe,
+  solve,
+} from '$lib/macros/macros.js';
 import type { PageProps } from './$types';
 
-let {data}: PageProps = $props();
+let { data }: PageProps = $props();
 
 let foods: Array<Food> = $state([]);
 
-  let error: string = $state("");
+let error: string = $state('');
 
 let target: MacrosSplit = $state({
-  fat: 121 / 3 as Fat,
-  carbs: 20 / 3 as Carbs,
-  protein: 84 / 3 as Protein
+  fat: (121 / 3) as Fat,
+  carbs: (20 / 3) as Carbs,
+  protein: (84 / 3) as Protein,
 });
 
 let recipe: Recipe = $derived.by(() => {
   try {
     return solve(foods, target);
-  } catch (e) {
+  } catch (_e) {
     return new Map();
   }
 });
@@ -37,10 +45,9 @@ let totals = $derived.by(() => {
     fat: totalFat,
     carbs: totalCarbs,
     protein: totalProtein,
-    calories: totalCalories
+    calories: totalCalories,
   };
 });
-
 </script>
 
 <form>

@@ -1,7 +1,6 @@
-import type { LayoutLoad } from './$types';
-
-import defaultFoods from './foods.json';
 import { createFood, type Food } from '$lib/macros/macros';
+import type { LayoutLoad } from './$types';
+import defaultFoods from './foods.json';
 
 export const prerender = true;
 
@@ -13,6 +12,8 @@ function loadLocalFoods(): Array<Food> {
     } else throw new Error('No local foods found');
   } catch (error) {
     console.error('Error loading local foods:', error);
+
+    // biome-ignore lint/suspicious/noExplicitAny: will be adding validation
     return defaultFoods.map((food: any) => {
       return createFood(
         food.name,
@@ -20,7 +21,7 @@ function loadLocalFoods(): Array<Food> {
         food.carbs,
         food.protein,
         food.calories,
-        food.portionSize
+        food.portionSize,
       );
     }) as Array<Food>;
   }
