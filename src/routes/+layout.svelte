@@ -10,8 +10,8 @@
 </svelte:head>
 
 <nav>
-	<a onclick={goto("./add")}>Add Food</a>
-	<a onclick={goto("./recipe")}>Create Recipe</a>
+	<a href="/add">Add Food</a>
+	<a href="/recipe">Create Recipe</a>
 </nav>
 
 {@render children()}
