@@ -8,6 +8,9 @@ let { children } = $props();
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
 </svelte:head>
 
 <nav>
@@ -31,6 +34,10 @@ let { children } = $props();
 		color: var(--text-color);
 		corner-shape: superellipse(3);
 		border-radius: calc(2* var(--unit));
+
+		font-family: "Delius", cursive, sans-serif;
+		font-weight: 400;
+		font-style: normal;
 	}
 
 	nav {

@@ -170,5 +170,12 @@ let totals = $derived.by(() => {
       color: var(--text-color);
       padding: calc(var(--unit) * 0.5);
     }
+
+    & thead th,
+    & tfoot td {
+      background-color: color-mix(in lab, var(--background-color), #000);
+      color: color-mix(in lab, var(--text-color), #fff);
+      font-weight: bold;
+    }
   }
 </style>
