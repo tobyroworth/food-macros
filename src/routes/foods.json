@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Steamed Broccoli",
+    "fat": 0.6,
+    "carbs": 11,
+    "protein": 3.7,
+    "calories": 55,
+    "portionSize": 156
+  },
+  {
+    "name": "Shredded Chicken Thighs",
+    "fat": 8.5,
+    "carbs": 0,
+    "protein": 23,
+    "calories": 175,
+    "portionSize": 55
+  },
+  {
+    "name": "80/20 Ground Beef",
+    "fat": 14,
+    "carbs": 0,
+    "protein": 20.5,
+    "calories": 205,
+    "portionSize": 85
+  },
+  {
+    "name": "Coconut Cream",
+    "fat": 6,
+    "carbs": 0,
+    "protein": 0,
+    "calories": 60,
+    "portionSize": 30
+  }
+]
