@@ -21,7 +21,7 @@ let { children } = $props();
 
 <style>
 
-	* {
+	:root, * {
 		box-sizing: border-box;
 		--text-color: #ded;
 		--background-color: #343;
@@ -29,6 +29,8 @@ let { children } = $props();
 		--unit: 1rem;
 		
 		color: var(--text-color);
+		corner-shape: superellipse(3);
+		border-radius: calc(2* var(--unit));
 	}
 
 	nav {
@@ -41,8 +43,9 @@ let { children } = $props();
 			text-decoration: none;
 			font-weight: bold;
 
-			:hover {
-				color: ;
+			&:hover {
+				background-color: color-mix(in lab, var(--background-color), #fff);
+				color: color-mix(in lab, var(--text-color), #000);
 			}
 		}
 	}

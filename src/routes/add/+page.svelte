@@ -34,35 +34,65 @@ function clear() {
 
 <form>
   <label>
-    Name
+    <h3>Name</h3>
     <input bind:value={name} type="text" name="name" />
   </label>
   <label>
-    Fat
+    <h3>Fat</h3>
     <input bind:value={fat} type="number" name="fat" step="0.1" min="0"/>
   </label>
   <label>
-    Carbs
+    <h3>Carbs</h3>
     <input bind:value={carbs} type="number" name="carbs" step="0.1" min="0"/>
   </label>
   <label>
-    Protein
+    <h3>Protein</h3>
     <input bind:value={protein} type="number" name="protein" step="0.1" min="0"/>
   </label>
   <label>
-    Portion Size (g)
+    <h3>Portion Size (g)</h3>
     <input bind:value={portionSize} type="number" name="portionSize" step="0.1" min="0"/>
   </label>
   <label>
-    Calories
+    <h3>Calories</h3>
     <input bind:value={calories} type="number" name="calories" />
   </label>
-  <button type="button" onclick={_save}>Add Food</button>
+  <button type="button" onclick={_save}><h3>Add Food</h3></button>
 </form>
 
 <style>
   form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    button {
+      all: unset;
+      cursor: pointer;
+      grid-column-start: 2;
+    }
+
+    & label {
+      grid-column: span 2;
+    }
+
+    & label,
+    & button {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      
+      corner-shape: superellipse(3);
+      border-radius: calc(2* var(--unit));
+
+      h3 {
+        padding: var(--unit);
+        margin: 0;
+        width: 150px;
+      }
+    }
   }
 </style>

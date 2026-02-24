@@ -51,21 +51,24 @@ let totals = $derived.by(() => {
 </script>
 
 <form>
-  <label>Food 1
+  <label>
+    <h3>Food 1</h3>
     <select bind:value={foods[0]}>
       {#each data.foods as food}
       <option value={food}>{food.name}</option>
       {/each}
     </select>
   </label>
-  <label>Food 2
+  <label>
+    <h3>Food 2</h3>
     <select bind:value={foods[1]}>
       {#each data.foods as food}
       <option value={food}>{food.name}</option>
       {/each}
     </select>
   </label>
-  <label>Food 3
+  <label>
+    <h3>Food 3</h3>
     <select bind:value={foods[2]}>
       {#each data.foods as food}
       <option value={food}>{food.name}</option>
@@ -117,12 +120,55 @@ let totals = $derived.by(() => {
 </table>
 
 <style>
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-
   td.number {
     text-align: right;
+  }
+
+  form {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    & button {
+      all: unset;
+      cursor: pointer;
+      grid-column-start: 2;
+    }
+
+    & label {
+      grid-column: span 2;
+    }
+
+    & label,
+    & button {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      
+      corner-shape: superellipse(3);
+      border-radius: calc(2* var(--unit));
+
+      h3 {
+        padding: var(--unit);
+        margin: 0;
+        width: 150px;
+      }
+    }
+  }
+
+  table {
+    gap: 1rem;
+    margin-top: var(--unit);
+
+    & th, & td {
+      corner-shape: superellipse(3);
+      border-radius: calc(2* var(--unit));
+      background-color: var(--background-color);
+      color: var(--text-color);
+      padding: calc(var(--unit) * 0.5);
+    }
   }
 </style>
