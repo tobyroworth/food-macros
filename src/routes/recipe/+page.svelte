@@ -128,20 +128,18 @@ let totals = $derived.by(() => {
     display: grid;
     grid-auto-rows: auto;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: var(--unit);
 
-    & button {
-      all: unset;
-      cursor: pointer;
+    button {
       grid-column-start: 2;
     }
 
-    & label {
+    label {
       grid-column: span 2;
     }
 
-    & label,
-    & button {
+    label,
+    button {
       display: grid;
       grid-template-columns: subgrid;
       grid-template-rows: subgrid;
@@ -151,20 +149,14 @@ let totals = $derived.by(() => {
       /* biome-ignore lint/correctness/noUnknownProperty lint/correctness/noUnknownFunction: not yet in biome */
       corner-shape: superellipse(3);
       border-radius: calc(2* var(--unit));
-
-      h3 {
-        padding: var(--unit);
-        margin: 0;
-        width: 150px;
-      }
     }
   }
 
   table {
-    gap: 1rem;
+    gap: var(--unit);
     margin-top: var(--unit);
 
-    & th, & td {
+    th, td {
       /* biome-ignore lint/correctness/noUnknownProperty lint/correctness/noUnknownFunction: not yet in biome */
       corner-shape: superellipse(3);
       border-radius: calc(2* var(--unit));
@@ -173,8 +165,8 @@ let totals = $derived.by(() => {
       padding: calc(var(--unit) * 0.5);
     }
 
-    & thead th,
-    & tfoot td {
+    thead th,
+    tfoot td {
       background-color: color-mix(in lab, var(--background-color), #000);
       color: color-mix(in lab, var(--text-color), #fff);
       font-weight: bold;

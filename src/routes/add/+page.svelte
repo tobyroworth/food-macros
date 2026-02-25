@@ -65,20 +65,22 @@ function clear() {
     display: grid;
     grid-auto-rows: auto;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: var(--unit);
 
     button {
-      all: unset;
-      cursor: pointer;
       grid-column-start: 2;
     }
 
-    & label {
+    label {
       grid-column: span 2;
     }
 
-    & label,
-    & button {
+    input[type="number"] {
+      text-align: right;
+    }
+
+    label,
+    button {
       display: grid;
       grid-template-columns: subgrid;
       grid-template-rows: subgrid;

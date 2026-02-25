@@ -2,6 +2,7 @@
 import { goto } from '$app/navigation';
 import { base } from '$app/paths';
 import favicon from '$lib/assets/favicon.svg';
+import Navbar from '$lib/components/Navbar.svelte';
 
 let { children } = $props();
 </script>
@@ -13,10 +14,7 @@ let { children } = $props();
 	<link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
 </svelte:head>
 
-<nav>
-	<a href="{base}/add">Add Food</a>
-	<a href="{base}/recipe">Create Recipe</a>
-</nav>
+<Navbar />
 
 <section>
 {@render children()}
@@ -24,41 +22,47 @@ let { children } = $props();
 
 <style>
 
-	:root, * {
-		box-sizing: border-box;
-		--text-color: #ded;
-		--background-color: #343;
-		--border-color: #bcb;
-		--unit: 1rem;
-		
-		color: var(--text-color);
+	:global(:root) {
+		/* :root { */
+			box-sizing: border-box;
+			--text-color: #ded;
+			--background-color: #343;
+			--border-color: #bcb;
+			--unit: 1rem;
+			
+			color: var(--text-color);
+			/* biome-ignore lint/correctness/noUnknownProperty lint/correctness/noUnknownFunction: not yet in biome */
+			corner-shape: superellipse(3);
+			border-radius: calc(2* var(--unit));
+
+			font-family: "Delius", cursive, sans-serif;
+			font-weight: 400;
+			font-style: normal;
+		/* } */
+	}
+
+	:global(.rounded) {
 		/* biome-ignore lint/correctness/noUnknownProperty lint/correctness/noUnknownFunction: not yet in biome */
-    corner-shape: superellipse(3);
+		corner-shape: superellipse(3);
 		border-radius: calc(2* var(--unit));
-
-		font-family: "Delius", cursive, sans-serif;
-		font-weight: 400;
-		font-style: normal;
 	}
 
-	nav {
-		display: flex;
-		gap: var(--unit);
+	:global(a) {
+		all: unset;
+		cursor: pointer;
+	}
+
+	:global(button) {
+		all: unset;
+		cursor: pointer;
+	}
+
+	:global(h3) {
 		padding: var(--unit);
-		background-color: var(--background-color);
-
-		& a {
-			text-decoration: none;
-			font-weight: bold;
-
-			&:hover {
-				background-color: color-mix(in lab, var(--background-color), #fff);
-				color: color-mix(in lab, var(--text-color), #000);
-			}
-		}
+		margin: 0;
 	}
 
-	section {
+	:global(section) {
 		padding: var(--unit);
 	}
 </style>
