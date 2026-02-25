@@ -1,5 +1,6 @@
 <script lang="ts">
 import { create } from 'mathjs';
+import {invalidateAll} from '$app/navigation';
 import { createFood } from '$lib/macros/macros';
 import type { PageProps } from './$types';
 
@@ -17,7 +18,9 @@ function _save() {
 
   const foods = [...data.foods, newFood];
   const foodsString = JSON.stringify(foods);
+
   localStorage.setItem('foods', foodsString);
+  invalidateAll();
 
   clear();
 }
