@@ -85,6 +85,7 @@ function clear() {
       background-color: var(--background-color);
       color: var(--text-color);
       
+      /* biome-ignore lint/correctness/noUnknownProperty lint/correctness/noUnknownFunction: not yet in biome */
       corner-shape: superellipse(3);
       border-radius: calc(2* var(--unit));
 

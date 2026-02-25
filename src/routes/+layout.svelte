@@ -32,7 +32,8 @@ let { children } = $props();
 		--unit: 1rem;
 		
 		color: var(--text-color);
-		corner-shape: superellipse(3);
+		/* biome-ignore lint/correctness/noUnknownProperty lint/correctness/noUnknownFunction: not yet in biome */
+    corner-shape: superellipse(3);
 		border-radius: calc(2* var(--unit));
 
 		font-family: "Delius", cursive, sans-serif;

@@ -148,6 +148,7 @@ let totals = $derived.by(() => {
       background-color: var(--background-color);
       color: var(--text-color);
       
+      /* biome-ignore lint/correctness/noUnknownProperty lint/correctness/noUnknownFunction: not yet in biome */
       corner-shape: superellipse(3);
       border-radius: calc(2* var(--unit));
 
@@ -164,6 +165,7 @@ let totals = $derived.by(() => {
     margin-top: var(--unit);
 
     & th, & td {
+      /* biome-ignore lint/correctness/noUnknownProperty lint/correctness/noUnknownFunction: not yet in biome */
       corner-shape: superellipse(3);
       border-radius: calc(2* var(--unit));
       background-color: var(--background-color);
